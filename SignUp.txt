@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background: #ED81A8;
+
+}
+
+</style>
+</head>
+<body>
+
+</body>
+</html> 
+

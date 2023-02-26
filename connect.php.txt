@@ -1,0 +1,32 @@
+<?php
+    $fname = $_POST['fname'];
+    $email = $_POST['email']; 
+    $password = $_POST['password'];
+    $area = $_POST['area']; 
+    $road = $_POST['road'];
+    $house = $_POST['house'];
+    $flat = $_POST['flat'];    
+
+
+
+
+$conn = new mysqli('localhost', 'root', '', 'reg');
+if($conn->connect_error) {
+
+    die('Connection Failed : '.$conn->connect_error);
+
+}
+
+else {
+
+$stmt = $conn->prepare("insert into registration(fname, email, password, area, road, house, flat)
+value(?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssissss", $fname, $email, $password, $area, $road, $house, $flat);
+$stmt->execute();
+echo "registration successfull..";
+$stmt->close();
+$conn->close();
+
+}
+
+?>
